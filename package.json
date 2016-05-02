@@ -1,0 +1,19 @@
+{
+  "name": "e-archiv-web",
+  "version": "1.0.0",
+  "description": "Web сервер для электронного архива",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Graalex/e-archiv-web.git"
+  },
+  "author": "Grigorchuk Aleksandr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Graalex/e-archiv-web/issues"
+  },
+  "homepage": "https://github.com/Graalex/e-archiv-web#readme"
+}
