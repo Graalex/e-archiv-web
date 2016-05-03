@@ -4,14 +4,20 @@ block content
 			form(name='search', method='post', action='search/')
 				fieldset
 					legend Поиск абонента
-					label Лицевой счет:
-					input(type='number', name='search[ls]')
-					label Абонент:
-					input(type='text', name='search[abonent]')
-					label Населенный пункт:
-					input(type='text', name='search[settlement]')
-					label Улица:
-					input(type='text', name='search[street]')
-					label Дом:
-					input(type='text', name='search[house]')
-					input(type='submit')
+					.search__ls
+						label Лицевой счет:
+						input(type='number', name='search[ls]')
+					.search__abonent
+						label Абонент:
+						input(type='text', name='search[abonent]')
+					.search__settlement
+						label Населенный пункт:
+						input(type='text', name='search[settlement]')
+					.search__street
+						label Улица:
+						input(type='text', name='search[street]')
+					.search__house
+						label Дом:
+						input(type='text', name='search[house]')
+					.search__command
+						input(type='submit')

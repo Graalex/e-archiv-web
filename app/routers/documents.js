@@ -25,4 +25,8 @@ router.get('/:id', (req, res) => {
 	res.send('Display one document id: ' + req.params['id']);
 });
 
+router.post('/search', (req, res) => {
+	res.send('Search abonents!');
+});
+
 module.exports = router;
