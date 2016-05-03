@@ -1,0 +1,17 @@
+block content
+	main
+		#search-bar.search
+			form(name='search', method='post', action='search/')
+				fieldset
+					legend Поиск абонента
+					label Лицевой счет:
+					input(type='number', name='search[ls]')
+					label Абонент:
+					input(type='text', name='search[abonent]')
+					label Населенный пункт:
+					input(type='text', name='search[settlement]')
+					label Улица:
+					input(type='text', name='search[street]')
+					label Дом:
+					input(type='text', name='search[house]')
+					input(type='submit')
