@@ -2,7 +2,18 @@ const exp = require('express');
 var router = exp.Router();
 
 router.get('/', (req, res) => {
-	res.render('pages/documents');
+	res.send([
+		{
+			"id": 1,
+			"name": "name-MDF-235",
+			"size": 201458
+		},
+		{
+			"id": 2,
+			"name": "name-MDF-200",
+			"size": 201287
+		}
+	])
 });
 
 router.get('/class/:id', (req, res) => {
