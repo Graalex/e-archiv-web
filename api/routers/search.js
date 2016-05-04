@@ -1,12 +1,33 @@
 const exp = require('express');
+const util = require('util');
+const sql = require('mssql');
+
 var router = exp.Router();
 
 router.get('/', (req, res) => {
 	res.send('Display search form.');
 });
 
-router.post('/', (req, res) => {
-	res.send('Search by LS.');
+//TODO: Change verb on POST
+router.get('/ls/:ls', (req, res) => {
+	var ls = req.params['ls'];
+	if(!util.isNullOrUndefined(ls) && ls > 0) {
+		sql.connect('mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Globus')
+				.then(() => {
+					new sql.Request()
+							.input('Ls', sql.Int, ls)
+							.execute('GZL_GetAbonentByLS')
+							.then((rec) => {
+								res.send(rec);
+							})
+							.catch((err) => {
+								res.send(err);
+							})
+				})
+				.catch((err) => {
+					res.send(err);
+				});
+	}
 });
 
 module.exports = router;
