@@ -10,6 +10,7 @@ const morgan = require('morgan');
 var auth = require('./api/routers/authenticate');
 var docs = require('./api/routers/documents');
 var search = require('./api/routers/search');
+const classes = require('./api/routers/classes');
 
 var app = express();
 app.config = require('./config');
@@ -23,17 +24,11 @@ var logStream = rotator.getStream({
 	verbose: false
 });
 
-app.use(morgan('combined', {stream: logStream}))
+app.use(morgan('combined', {stream: logStream}));
+app.use('/classes', classes);
 app.use('/auth', auth);
 app.use('/search', search);
 app.use('/documents', docs);
-
-//TODO: Отображение домашней страницы
-/*
-app.get('/', (req, res) => {
-	res.render('pages/index');
-});
-*/
 
 var port = app.config.server.listenPort || 9000;
 app.listen(port, () => {

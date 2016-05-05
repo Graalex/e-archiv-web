@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Graalex/e-archiv-web#readme",
   "dependencies": {
     "angular": "^1.5.5",
+    "angular-resource": "^1.5.5",
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
