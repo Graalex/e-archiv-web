@@ -4,8 +4,8 @@
   "description": "Web сервер для электронного архива",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "gulp build:server",
+    "start": "node dist/server.js",
+    "build": "gulp build",
     "clean": "gulp clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
