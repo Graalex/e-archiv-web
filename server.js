@@ -6,14 +6,13 @@ const rotator = require('file-stream-rotator');
 const fs = require('fs');
 const morgan = require('morgan');
 
-//var conf = require('./config');
+var conf = require('./config');
 var auth = require('./api/routers/authenticate');
 var docs = require('./api/routers/documents');
 var search = require('./api/routers/search');
 const classes = require('./api/routers/classes');
 
 var app = express();
-app.config = require('./config');
 var logDir = __dirname + '/api/logs';
 
 fs.existsSync(logDir) || fs.mkdirSync(logDir);
@@ -29,8 +28,14 @@ app.use('/classes', classes);
 app.use('/auth', auth);
 app.use('/search', search);
 app.use('/documents', docs);
+app.use('/assets', express.static(__dirname + '/public/assets'));
 
-var port = app.config.server.listenPort || 9000;
+app.get('/', (req, res) => {
+	"use strict";
+	res.sendFile(__dirname + '/public/index.html');
+});
+
+var port = conf.server.listenPort || 9000;
 app.listen(port, () => {
 	console.log('Earchiv server start at port ' + port);
 });
