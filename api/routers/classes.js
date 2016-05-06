@@ -1,11 +1,12 @@
 const exp = require('express');
 const sql = require('mssql');
+const conf = require('../../config');
 
 var router = exp.Router();
 
 // route GET http://earchiv/classes/
 router.get('/', (req, res) => {
-	sql.connect('mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Archiv')
+	sql.connect(conf.db.archiv)
 
 	.then(() => {
 		new sql.Request()
@@ -26,7 +27,7 @@ router.get('/', (req, res) => {
 // route GET http://earchiv/classes/1
 router.get('/:id', (req, res) => {
 	const id = req.params['id'];
-	sql.connect('mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Archiv')
+	sql.connect(conf.db.archiv)
 	.then(() => {
 		new sql.Request()
 			.query(`select * from DocClass where Ukey = ${id}`)

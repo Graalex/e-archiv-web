@@ -1,6 +1,7 @@
 const exp = require('express');
 const util = require('util');
 const sql = require('mssql');
+const conf = require('../../config');
 
 var router = exp.Router();
 
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/ls/:ls', (req, res) => {
 	var ls = req.params['ls'];
 	if(!util.isNullOrUndefined(ls) && ls > 0) {
-		sql.connect('mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Globus')
+		sql.connect(conf.db.globus)
 				.then(() => {
 					new sql.Request()
 							.input('Ls', sql.Int, ls)

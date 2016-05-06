@@ -10,7 +10,10 @@
  *
  */
 module.exports = {
-	db: {},
+	db: {
+		archiv: 'mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Archiv',
+		globus: 'mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Globus'
+	},
 	security: {},
 	server: {
 		listenPort: 9000,

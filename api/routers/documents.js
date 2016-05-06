@@ -1,6 +1,7 @@
 const exp = require('express');
 const util = require('util');
 const sql = require('mssql');
+const conf = require('../../config');
 
 var router = exp.Router();
 
@@ -23,7 +24,7 @@ router.get('/class/:classID/type/:typeID', (req, res) => {
 router.get('/ls/:id', (req, res) => {
 	var ls = req.params['id'];
 	if(!util.isNullOrUndefined(ls) && ls > 0) {
-		sql.connect('mssql://ARCHIV_APP:ARCHIV_APP@192.168.0.168/Archiv')
+		sql.connect(conf.db.archiv)
 				.then(() => {
 					new sql.Request()
 							.input('LS', sql.Int, ls)

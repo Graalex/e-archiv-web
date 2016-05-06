@@ -1,0 +1,13 @@
+include header/header
+include main/main
+include footer/footer
+include scripts/scripts
+
+!!!
+html(lang='ru', ng-app='earchiv')
+	include head/head
+	body
+		+header
+		+main
+		+footer
+		+scripts([app.min.js])
