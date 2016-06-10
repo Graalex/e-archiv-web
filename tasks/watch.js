@@ -8,13 +8,13 @@ const bs = browserSync('server');
 gulp.task('watch', () => {
 	global.watch = true;
 
-	watch(['app/sprites/**/*.png', '!app/sprites/*.png'], () => runSequence('sprites'));
+	//watch(['app/sprites/**/*.png', '!app/sprites/*.png'], () => runSequence('sprites'));
 	watch('app/{styles,blocks}/**/*.styl', () => {
 		runSequence(['styles', 'styles:lint'], () => bs.reload('assets/styles/app.min.css'));
 	});
 	watch(['app/{pages,blocks}/**/*.jade'], () => runSequence('templates', bs.reload));
-	watch('app/resources/**/*', () => runSequence('copy', bs.reload));
-	watch('app/icons/**/*.svg', () => runSequence('icons', bs.reload));
+	//watch('app/resources/**/*', () => runSequence('copy', bs.reload));
+	//watch('app/icons/**/*.svg', () => runSequence('icons', bs.reload));
 
-	gulp.start('scripts:watch');
+	//gulp.start('scripts:watch');
 });

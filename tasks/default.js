@@ -12,11 +12,13 @@ gulp.task('default', () => {
 	)
 });
 
-gulp.task('build', () => (
-		gulp.start(
-				'styles',
-				'template',
-				'scripts',
-				'copy'
-		)
-));
+gulp.task('build', () => {
+	seq(
+			[
+			'styles',
+			'template'
+			]
+			//'scripts',
+			//'copy'
+	)
+});

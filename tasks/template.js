@@ -9,6 +9,10 @@ import inheritance from 'gulp-jade-inheritance';
 import cached from 'gulp-cached';
 import filter from 'gulp-filter';
 
+const data = {
+	timestamp: Date.now()
+}
+
 gulp.task('template', () => (
 	gulp.src('app/**/*.jade')
 		.pipe(plumber({errorHandler: errorHandler(`Error in \'templates\' task`)}))
