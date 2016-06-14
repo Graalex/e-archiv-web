@@ -1,7 +1,4 @@
-doctype html
-html(lang='ru')
-	include ../blocks/head/head
-	body
-		include ../blocks/header/header
+extends ../blocks/layouts/default
 
-		include ../blocks/footer/footer
+block content
+	main.page-content(ng-view, layout='row')

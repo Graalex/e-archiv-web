@@ -13,8 +13,8 @@ const eslintFormatter = ({notify}) => errors => {
 			if (error) {
 				notifier.notify({
 					title: error.message,
-					message: `${error.line}:${error.column} ${error.source.trim()}`,
-					icon: path.join(__dirname, 'tasks/images/error-icon.png')
+					message: `${error.line}:${error.column} ${error.source.trim()}`
+					//icon: path.join(__dirname, 'tasks/images/error-icon.png')
 				});
 			}
 		}
@@ -70,7 +70,7 @@ export default function makeWebpackConfig({
 				}
 			})
 		].concat(debug ? [
-			new NpmInstallPlugin({saveDev: true}),
+			//new NpmInstallPlugin({saveDev: true}),
 			new webpack.HotModuleReplacementPlugin()
 		] : [
 			new webpack.optimize.DedupePlugin(),

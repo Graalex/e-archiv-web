@@ -17,8 +17,8 @@ gulp.task('build', () => {
 			[
 			'styles',
 			'template'
-			]
-			//'scripts',
+			],
+			'scripts'
 			//'copy'
 	)
 });
