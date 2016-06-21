@@ -1,0 +1,11 @@
+include ../scripts/scripts
+
+doctype html
+html(lang='ru')
+   include ../head/head
+   body(ng-app='ArchivApp')
+      .wrap(layout='column')
+         include ../header/header
+         block content
+      include ../footer/footer
+      +scripts(['app.min.js'])
