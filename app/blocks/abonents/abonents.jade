@@ -1,0 +1,11 @@
+div(ng-show='abonents').c-abonents-list
+   header
+     h2.c-abonents-list__title Список абонентов
+
+   .c-abonents-list__table
+     mg-list(ng-cloak)
+       mg-list-item(ng-repeat='abonent in abonents', ng-click='findDocuments(abonent.ls)').c-abonents-list__item
+         p(layout='row')
+           span(flex='25').c-abonents-list__ls {{abonent.ls}}
+           span(flex='75').c-abonents-list__fmily {{abonent.family}}
+         md-divider(ng-if='!$last')

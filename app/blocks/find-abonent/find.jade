@@ -1,0 +1,24 @@
+.c-find-abonent
+  header
+    h2.c-find-abonent__title Поиск абонента
+  form(name='findAbonent').c-find-abonent__form
+    div(layout='column')
+      div(layout='row')
+        md-input-container(flex='30').md-block
+          label Лиц. счет
+          input(ng-model='finder.ls')
+        md-input-container(flex='70').md-block
+          label Фамилия
+          input(ng-model='finder.family')
+      md-input-container.md-block
+        label Нас. пункт
+        input(ng-model='finder.city')
+      div(layout='row')
+        md-input-container(flex='70').md-block
+          label Улица(пр-т, пер.)
+          input(ng-model='finder.street')
+        md-input-container(flex='30').md-block
+          label Дом
+          input(ng-model='finder.home')
+      div(layout='row', layout-align='end none')
+        md-button(ng-click='findAbonent()').md-raised Искать

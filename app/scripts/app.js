@@ -1,11 +1,66 @@
 import angular from 'angular';
-import animate from 'angular-animate';
-import aria from 'angular-aria';
-import mat from 'angular-material';
+import 'angular-ui-router';
+import 'angular-animate';
+import 'angular-aria';
+import 'angular-material';
+import HomeController from './HomeController.js';
+import DocsController from './DocsController.js';
+import FindAbonentController from './FindAbonentController.js';
+import AbonentListController from './AbonentListController.js';
 
-angular.module('ArchivApp', ['ngMaterial'])
-	.config($mdThemingProvider => {
-		$mdThemingProvider.theme('default')
-			.primaryPalette('green')
-			.accentPalette('orange')
-	});
+/*
+angular.element(
+	document.getElementsByTagName('head')
+)
+.append(
+	angular.element('<base href="' + window.location.pathname + '" />')
+);
+*/
+
+angular.module('ArchivApp', ['ui.router', 'ngMaterial'])
+.config(['$mdThemingProvider', $mdThemingProvider => {
+	$mdThemingProvider
+	.theme('default')
+	.primaryPalette('green')
+	.accentPalette('orange');
+}])
+.config(['$stateProvider', $stateProvider => {
+	$stateProvider
+	.state('home',
+		{
+			url: '/',
+			templateUrl: '/tmpl/home.html',
+			controller: HomeController
+		}
+	)
+	.state('documents',
+		{
+			url: '/documents',
+			views: {
+				'': {
+					templateUrl: '/tmpl/documents.html'
+				},
+				'find@documents': {
+					templateUrl: '/tmpl/find-abonent.html',
+					controller: FindAbonentController
+				},
+				'list@documents': {
+					templateUrl: '/tmpl/abonents.html',
+					controller: AbonentListController
+				}
+			}
+		}
+	);
+}])
+.config(['$urlRouterProvider', $urlRouterProvider => {
+	$urlRouterProvider.otherwise('/');
+}]);
+/*
+.config(['$locationProvider', $locationProvider => {
+	$locationProvider.html5Mode(true);
+}]);
+*/
+
+
+
+

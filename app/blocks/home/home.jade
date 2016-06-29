@@ -1,0 +1,3 @@
+ul.c-nav(layout='column')
+   li.c-nav__title(ng-repeat='work in works', flex='50')
+      a.c-nav__link(ui-sref='{{work.link}}') {{work.name}}
