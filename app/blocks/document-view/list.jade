@@ -1,0 +1,7 @@
+md-content.md-padding(layout='row')
+	md-card(ng-repeat='document in documents', flex='25')
+		img.md-card-image(src='{{document.img}}')
+		md-card-title
+			md-card-title-text
+				span.md-card-headline {{document.name}}
+				span.md-card-subhead {{document.type}}

@@ -4,9 +4,10 @@ import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
 import HomeController from './HomeController.js';
-import DocsController from './DocsController.js';
 import FindAbonentController from './FindAbonentController.js';
 import AbonentListController from './AbonentListController.js';
+import AbonentInfoController from './AbonentInfoController.js';
+import DocumentListController from './DocumentListController.js';
 
 /*
 angular.element(
@@ -50,6 +51,24 @@ angular.module('ArchivApp', ['ui.router', 'ngMaterial'])
 				}
 			}
 		}
+	)
+	.state('document-ls',
+			{
+				url: '/documents/ls/{ls:int}',
+				views: {
+					'': {
+						templateUrl: '/tmpl/document-ls.html'
+					},
+					'abonent@document-ls': {
+						templateUrl: '/tmpl/abonent-info.html',
+						controller: AbonentInfoController
+					},
+					'list@document-ls': {
+						templateUrl: '/tmpl/document-list.html',
+						controller: DocumentListController
+					}
+				}
+			}
 	);
 }])
 .config(['$urlRouterProvider', $urlRouterProvider => {
