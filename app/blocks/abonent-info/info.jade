@@ -1,10 +1,3 @@
-header.abonent-info(laout='column')
-  h1.abonent-info__ls Лицевой счет: {{ ls }}
-
-  //.abonent-info__family
-    span.abonent-info__label Абонент:
-    span.abonent-info__value {{abonent.Family}}
-  //.abonent-info__address
-    span.abonent-info__label Адрес:
-    address.abonent-info__value {{abonent.Address}}
+header.abonent-info(laout='row', md-colors="{background: 'primary-500'}")
+  h1.abonent-info__ls(flex=100) Лицевой счет: {{ ls }}
 

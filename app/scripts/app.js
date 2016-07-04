@@ -23,8 +23,8 @@ angular.module('ArchivApp', ['ui.router', 'ngMaterial', 'ngResource'])
 .config(['$mdThemingProvider', $mdThemingProvider => {
 	$mdThemingProvider
 	.theme('default')
-	.primaryPalette('green')
-	.accentPalette('orange');
+	.primaryPalette('indigo')
+	.accentPalette('pink');
 }])
 .config(['$stateProvider', $stateProvider => {
 	$stateProvider

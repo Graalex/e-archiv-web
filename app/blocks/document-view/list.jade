@@ -1,5 +1,5 @@
 md-content.doc-list.md-padding(layout='row')
-	md-card.doc-list__item(ng-repeat='document in documents', flex='30', ng-cloak)
+	md-card.doc-list__item(ng-repeat='document in documents', flex='30', ng-cloak, md-colors="{background: 'primary-500'}")
 		img.doc-list__img.md-card-image(ng-src='{{document.path}}')
 		md-card-title.doc-list__title
 			md-card-title-text
