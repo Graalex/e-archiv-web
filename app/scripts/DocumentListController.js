@@ -4,7 +4,7 @@ export default ($scope, $stateParams, $resource) => {
 	$scope.documents = [];
 	const ls = $stateParams.ls;
 
-	$resource('http://localhost\\:9000/api/v1.0/ls/' + ls + '/documents')
+	$resource('http://192.168.0.199\\:9000/api/v1.0/ls/' + ls + '/documents')
 	.query(res => {
 		const documents = res[0];
 		angular.forEach(documents, doc => {

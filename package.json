@@ -6,8 +6,7 @@
   "scripts": {
     "start": "gulp --debug",
     "build": "gulp build",
-    "production": "cross-env NODE_ENV=production npm-run-all build",
-    "make-block": "babel-node make-block.js",
+    "production": "set NODE_ENV=production && npm run build",
     "lint:scripts": "eslint app gulp",
     "lint:styles": "gulp styles:lint",
     "lint": "npm-run-all -p lint:*",
