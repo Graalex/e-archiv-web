@@ -1,7 +1,8 @@
-md-content.md-padding(layout='row')
-	md-card(ng-repeat='document in documents', flex='25')
-		img.md-card-image(src='{{document.img}}')
-		md-card-title
+md-content.doc-list.md-padding(layout='row')
+	md-card.doc-list__item(ng-repeat='document in documents', flex='30', ng-cloak)
+		img.doc-list__img.md-card-image(ng-src='{{document.path}}')
+		md-card-title.doc-list__title
 			md-card-title-text
-				span.md-card-headline {{document.name}}
-				span.md-card-subhead {{document.type}}
+				span.doc-list__name Файл: {{document.name}}
+				span.doc-list__createat Создан: {{document.createAt | date:'dd.MM.yyyy HH:mm:ss'}}
+

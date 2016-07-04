@@ -3,6 +3,7 @@ import 'angular-ui-router';
 import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
+import 'angular-resource';
 import HomeController from './HomeController.js';
 import FindAbonentController from './FindAbonentController.js';
 import AbonentListController from './AbonentListController.js';
@@ -18,7 +19,7 @@ angular.element(
 );
 */
 
-angular.module('ArchivApp', ['ui.router', 'ngMaterial'])
+angular.module('ArchivApp', ['ui.router', 'ngMaterial', 'ngResource'])
 .config(['$mdThemingProvider', $mdThemingProvider => {
 	$mdThemingProvider
 	.theme('default')
@@ -53,22 +54,22 @@ angular.module('ArchivApp', ['ui.router', 'ngMaterial'])
 		}
 	)
 	.state('document-ls',
-			{
-				url: '/documents/ls/{ls:int}',
-				views: {
-					'': {
-						templateUrl: '/tmpl/document-ls.html'
-					},
-					'abonent@document-ls': {
-						templateUrl: '/tmpl/abonent-info.html',
-						controller: AbonentInfoController
-					},
-					'list@document-ls': {
-						templateUrl: '/tmpl/document-list.html',
-						controller: DocumentListController
-					}
+		{
+			url: '/documents/ls/{ls:int}',
+			views: {
+				'': {
+					templateUrl: '/tmpl/document-ls.html'
+				},
+				'abonent@document-ls': {
+					templateUrl: '/tmpl/abonent-info.html',
+					controller: AbonentInfoController
+				},
+				'list@document-ls': {
+					templateUrl: '/tmpl/document-list.html',
+					controller: DocumentListController
 				}
 			}
+		}
 	);
 }])
 .config(['$urlRouterProvider', $urlRouterProvider => {

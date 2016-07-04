@@ -22,7 +22,7 @@ export default $scope => {
 		}
 	];
 
-	$scope.findDocuments = ls => {
-		ls = 0;
+	$scope.findDocuments = () => {
+
 	};
 };
