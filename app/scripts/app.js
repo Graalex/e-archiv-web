@@ -9,6 +9,8 @@ import FindAbonentController from './FindAbonentController.js';
 import AbonentListController from './AbonentListController.js';
 import AbonentInfoController from './AbonentInfoController.js';
 import DocumentListController from './DocumentListController.js';
+import ContractInfoController from './ContractInfoController.js';
+import DocumentsContractController from './DocumentsContractController.js';
 
 /*
 angular.element(
@@ -70,7 +72,19 @@ angular.module('ArchivApp', ['ui.router', 'ngMaterial', 'ngResource'])
 				}
 			}
 		}
-	);
+	)
+	.state('contracts',	{
+		url: '/contracts/{org:string}/{code:string}',
+		views: {
+			'': {
+				templateUrl: '/tmpl/contract.html'
+			},
+			'document-contract@contracts': {
+				templateUrl: 'tmpl/documents-contract.html',
+				controller: DocumentsContractController
+			}
+		}
+	});
 }])
 .config(['$urlRouterProvider', $urlRouterProvider => {
 	$urlRouterProvider.otherwise('/');
